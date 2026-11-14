@@ -4,7 +4,7 @@ async function main() {
   const ping = await pool.query('SELECT 1 AS ok');
   if (ping.rows[0].ok !== 1) throw new Error('La base de datos no responde.');
 
-  const table = await pool.query("SELECT to_regclass('public.productos_error') AS tabla");
+  const table = await pool.query("SELECT to_regclass('public.productos') AS tabla");
   if (table.rows[0].tabla !== 'productos') throw new Error('La tabla productos no existe.');
 
   await pool.query('BEGIN');
